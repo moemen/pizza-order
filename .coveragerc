@@ -1,0 +1,14 @@
+[run]
+include = pizza/*
+omit =
+      manage.py,
+      *migrations*,
+      *tests*
+      */__init__.py
+      config/*
+      */urls.py
+plugins =
+    django_coverage_plugin
+
+[html]
+directory=htmlcov
