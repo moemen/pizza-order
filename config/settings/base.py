@@ -41,18 +41,17 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Useful template tags:
-    # 'django.contrib.humanize',
-
     # Admin
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
+    'rest_framework',
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
-    # Your stuff: custom apps go here
+    'pizza.pizza',
+    'pizza.orders',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -240,3 +239,9 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
+
+# REST FRAMEWORK CONFIGURATIONS
+REST_FRAMEWORK = {
+    # No need for authentication or authorization for now
+    'DEFAULT_PERMISSION_CLASSES': [],
+}

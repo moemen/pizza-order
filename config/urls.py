@@ -10,8 +10,7 @@ from django.views import defaults as default_views
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
-
-
+    url('^api/v1/', include('config.routers_v1', namespace='api_v1'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

@@ -34,3 +34,6 @@ pytz==2016.10
 # Redis support
 django-redis==4.7.0
 redis>=2.10.5
+
+# API support
+djangorestframework==3.6.2
