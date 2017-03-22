@@ -51,6 +51,10 @@ All Django commans that you need to run, including the next commands should be f
 
 Check Docker and Docker Compose documentation for more information.
 
+Makfile
+"""""""
+
+I have added ``Makefile`` to shortcut the frequently used commands like ``docker-compose -f dev.yml up -d`` became ``make up``. Check ``Makefile`` for more commands.
 
 Basic Commands
 --------------
