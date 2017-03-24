@@ -7,9 +7,18 @@ from ..models import Pizza
 
 class PizzaViewsetTest(APITestCase):
     def setUp(self):
-        self.pizza = Pizza.objects.create(name='pizza type 1')
-        Pizza.objects.create(name='pizza type 2')
-        Pizza.objects.create(name='pizza type 3')
+        self.pizza = Pizza.objects.create(
+            name='pizza type 1',
+            sizes=['30cm', '40cm', '50cm',]
+        )
+        Pizza.objects.create(
+            name='pizza type 2',
+            sizes=['30cm', '40cm', '50cm',]
+        )
+        Pizza.objects.create(
+            name='pizza type 3',
+            sizes=['30cm', '40cm', '50cm',]
+        )
 
     def test_create(self):
         response = self.client.post(reverse('api_v1:pizza-list'))

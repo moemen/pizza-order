@@ -8,7 +8,10 @@ from ..models import Order
 
 class OrderViewsetTest(APITestCase):
     def setUp(self):
-        self.pizza = Pizza.objects.create(name='pizza type 1')
+        self.pizza = Pizza.objects.create(
+            name='pizza type 1',
+            sizes=['30cm', '40cm', '50cm',]
+        )
         self.order = Order.objects.create(
             customer_name='Customer Name 1',
             customer_address='diagon alley',
@@ -28,6 +31,19 @@ class OrderViewsetTest(APITestCase):
         )
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Order.objects.count(), 2)
+
+    def test_create_with_invalid_size(self):
+        response = self.client.post(
+            reverse('api_v1:order-list'),
+            data={
+                'customer_name': 'Customer Name 2',
+                'customer_address': 'diagon alley',
+                'size': '70cm',  # No pizza with this size
+                'pizza': self.pizza.id,
+            },
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(Order.objects.count(), 1)
 
     def test_list(self):
         response = self.client.get(
